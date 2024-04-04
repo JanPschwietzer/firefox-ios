@@ -176,6 +176,12 @@ FormAutofillUtils = {
     return Array.from(categories);
   },
 
+  getCollectionNameFromFieldName(fieldName) {
+    return this.isCreditCardField(fieldName)
+      ? CREDITCARDS_COLLECTION_NAME
+      : ADDRESSES_COLLECTION_NAME;
+  },
+
   getAddressSeparator() {
     // The separator should be based on the L10N address format, and using a
     // white space is a temporary solution.
@@ -192,7 +198,7 @@ FormAutofillUtils = {
   getAddressLabel(address) {
     // TODO: Implement a smarter way for deciding what to display
     //       as option text. Possibly improve the algorithm in
-    //       ProfileAutoCompleteResult.jsm and reuse it here.
+    //       ProfileAutoCompleteResult.sys.mjs and reuse it here.
     let fieldOrder = [
       "name",
       "-moz-street-address-one-line", // Street address
@@ -302,20 +308,27 @@ FormAutofillUtils = {
   },
 
   /**
-   * Determines if an element is focusable
-   * and accessible via keyboard navigation or not.
+   * Determines if an element is visually hidden or not.
    *
    * @param {HTMLElement} element
-   *
-   * @returns {bool} true if the element is focusable and accessible
+   * @param {boolean} visibilityCheck true to run visiblity check against
+   *                  element.checkVisibility API. Otherwise, test by only checking
+   *                  `hidden` and `display` attributes
+   * @returns {boolean} true if the element is visible
    */
-  isFieldFocusable(element) {
-    return (
-      // The Services.focus.elementIsFocusable API considers elements with
-      // tabIndex="-1" set as focusable. But since they are not accessible
-      // via keyboard navigation we treat them as non-interactive
-      Services.focus.elementIsFocusable(element, 0) && element.tabIndex != "-1"
-    );
+  isFieldVisible(element, visibilityCheck = true) {
+    if (
+      visibilityCheck &&
+      element.checkVisibility &&
+      !FormAutofillUtils.ignoreVisibilityCheck
+    ) {
+      return element.checkVisibility({
+        checkOpacity: true,
+        checkVisibilityCSS: true,
+      });
+    }
+
+    return !element.hidden && element.style.display != "none";
   },
 
   /**
@@ -792,6 +805,42 @@ FormAutofillUtils = {
     return null;
   },
 
+  /**
+   * Find the option element from xul menu popups, as used in address capture
+   * doorhanger.
+   *
+   * This is a proxy to `findAddressSelectOption`, which expects HTML select
+   * DOM nodes and operates on options instead of xul menuitems.
+   *
+   * NOTE: This is a temporary solution until Bug 1886949 is landed. This
+   * method will then be removed `findAddressSelectOption` will be used
+   * directly.
+   *
+   * @param   {XULPopupElement} menupopup
+   * @param   {object} address
+   * @param   {string} fieldName
+   * @returns {XULElement}
+   */
+  findAddressSelectOptionWithMenuPopup(menupopup, address, fieldName) {
+    class MenuitemProxy {
+      constructor(menuitem) {
+        this.menuitem = menuitem;
+      }
+      get text() {
+        return this.menuitem.label;
+      }
+      get value() {
+        return this.menuitem.value;
+      }
+    }
+    const selectEl = {
+      options: Array.from(menupopup.childNodes).map(
+        menuitem => new MenuitemProxy(menuitem)
+      ),
+    };
+    return this.findAddressSelectOption(selectEl, address, fieldName)?.menuitem;
+  },
+
   findCreditCardSelectOption(selectEl, creditCard, fieldName) {
     let oneDigitMonth = creditCard["cc-exp-month"]
       ? creditCard["cc-exp-month"].toString()
@@ -1126,4 +1175,12 @@ XPCOMUtils.defineLazyPreferenceGetter(
   "focusOnAutofill",
   "extensions.formautofill.focusOnAutofill",
   true
+);
+
+// This is only used for testing
+XPCOMUtils.defineLazyPreferenceGetter(
+  FormAutofillUtils,
+  "ignoreVisibilityCheck",
+  "extensions.formautofill.test.ignoreVisibilityCheck",
+  false
 );
