@@ -1,11 +1,20 @@
+/* On the autofill settings screen, a label for the section that displays the list of saved addresses. This label adds additional context for users regarding the toggle switch that allows saving and autofilling of addresses for webpages. */
+"Addresses.Settings.SavedAddressesSectionTitle.v124" = "SKŁAŹONE ADRESE";
+
+/* On the autofill settings screen, a label under the title label to add additional context for user in regards to what the toggle switch that allow saving and autofilling of addresses for webpages does, letting users know that this action includes phone numbers and email addresses. */
+"Addresses.Settings.Switch.Description.v124" = "Wopśimujo telefonowe numery a e-mailowe adrese";
+
+/* Title label for user to use the toggle settings to allow saving and autofilling of addresses for webpages. */
+"Addresses.Settings.Switch.Title.v124" = "Adrese składowaś a wupołniś";
+
+/* Displayed inside the keyboard hint when a user is entering their address and has at least one saved address. Indicates that there are stored addresses available for use in filling out a form. */
+"Addresses.Settings.UseSavedAddressFromKeyboard.v124" = "Skłaźonu adresu wužywaś";
+
 /* Accessibility label for the add button in autofill settings screen. Pressing this button presents a modal that allows users to add a card by entering the credit card information. */
 "CreditCard.Settings.AddCard.AccessibilityLabel.v121" = "Kórtu pśidaś";
 
 /* Description label for when there are no credit cards shown in credit card list in autofill settings screen. */
 "CreditCard.Settings.EmptyListDescription.v112" = "Składujśo wěsće swóje kórtowe informacije, aby pśiducy raz malsnjej płaśił.";
-
-/* Title label for when there are no credit cards shown in credit card list in autofill settings screen. %@ is the product name and should not be altered. */
-"CreditCard.Settings.EmptyListTitle.v112" = "Kreditowe kórty w %@ składowaś";
 
 /* Title label for when there are no credit cards shown in credit card list in autofill settings screen. %@ is the product name and should not be altered. */
 "CreditCard.Settings.EmptyListTitle.v122" = "Kórty do %@ składowaś";
@@ -14,25 +23,13 @@
 "CreditCard.Settings.ListItemA11y.v118" = "%1$@, wudany za %2$@, kóńcecy na %3$@, płaśiwy do %4$@";
 
 /* When a user is in the process or has finished making a purchase with a card not saved in Firefox's list of stored cards, we ask the user if they would like to save this card for future purchases. This string indicates to users that they can deny Firefox from remembering the card that is being used. */
-"CreditCard.Settings.NotNow.v112" = "Nic něnto";
-
-/* When a user is in the process or has finished making a purchase with a card not saved in Firefox's list of stored cards, we ask the user if they would like to save this card for future purchases. This string indicates to users that they can deny Firefox from remembering the card that is being used. */
 "CreditCard.Settings.NotNow.v122" = "Nic něnto";
-
-/* When a user is in the process or has finished making a purchase with a card not saved in Firefox's list of stored cards, we ask the user if they would like to save this card for future purchases. This string is a title string of the overall message that asks the user if they would like Firefox to remember the card that is being used. */
-"CreditCard.Settings.RememberThisCard.v112" = "Se toś tu historiju spomnjeś?";
 
 /* When a user is in the process or has finished making a purchase with a card not saved in Firefox's list of stored cards, we ask the user if they would like to save this card for future purchases. This string is a title string of the overall message that asks the user if they would like Firefox to remember the card that is being used. */
 "CreditCard.Settings.RememberThisCard.v122" = "Toś tu kórtu wěsće składowaś?";
 
 /* When a user is in the process or has finished making a purchase with a remembered card, and if the credit card information doesn't match the contents of the stored information of that card, we show this string. We ask this user if they would like Firefox update the staled information of that credit card. */
-"CreditCard.Settings.UpdateThisCard.v112" = "Toś tu kórtu aktualizěrowaś?";
-
-/* When a user is in the process or has finished making a purchase with a remembered card, and if the credit card information doesn't match the contents of the stored information of that card, we show this string. We ask this user if they would like Firefox update the staled information of that credit card. */
 "CreditCard.Settings.UpdateThisCard.v122" = "Kórtu aktualizěrowaś?";
-
-/* When a user is in the process or has finished making a purchase with a card not saved in Firefox's list of stored cards, we ask the user if they would like to save this card for future purchases. This string asks users to confirm if they would like Firefox to remember the card that is being used. */
-"CreditCard.Settings.Yes.v112" = "Jo";
 
 /* When a user is in the process or has finished making a purchase with a card not saved in Firefox's list of stored cards, we ask the user if they would like to save this card for future purchases. This string asks users to confirm if they would like Firefox to remember the card that is being used. */
 "CreditCard.Settings.Yes.v122" = "Aktualizěrowaś";
@@ -42,9 +39,6 @@
 
 /* When a user is in the process or has finished making a purchase, and has at least one card saved, we show this tappable string. This indicates to users that they can navigate to their list of stored credit cards in the app's credit card list screen. */
 "CreditCards.Settings.ManageCards.v112" = "Kórty zastojaś";
-
-/* When a user is in the process of making a purchase, and has at least one saved card, we show this label used as a title. This indicates to the user that there are stored cards available for use on this pending purchase. */
-"CreditCards.Settings.UseASavedCard.v112" = "Skłaźonu kórtu wužywaś?";
 
 /* When a user is in the process of making a purchase, and has at least one saved card, we show this label used as a title. This indicates to the user that there are stored cards available for use on this pending purchase. */
 "CreditCards.Settings.UseASavedCard.v122" = "Skłaźonu kórtu wužywaś";
@@ -100,11 +94,17 @@
 /* Title for the `default search engine` settings section in the Search page in the Settings menu. */
 "Settings.Search.DefaultSearchEngine.Title.v121" = "Standardna pytnica";
 
+/* Title for the `Suggestions from Search Engines` settings section in the Search page in the Settings menu. */
+"Settings.Search.EnginesSuggestions.Title.v124" = "Naraźenja z pytnicow";
+
 /* Navigation title for search page in the Settings menu. */
 "Settings.Search.PageTitle.v121" = "Pytaś";
 
 /* Label for toggle. Explains that in private browsing mode, the search suggestions which appears at the top of the search bar, can be toggled on or off. Located in the Private Session section in the Search page in the Settings menu. */
 "Settings.Search.PrivateSession.Setting.v122" = "Naraźenja w priwatnem modusu pokazaś";
+
+/* Label for toggle. Explains that in private browsing mode, the search suggestions which appears at the top of the search bar, can be toggled on or off. Located in `Suggestions from Search Engines` and `Address Bar - Firefox Suggest` sections in the Search page in the Settings menu. */
+"Settings.Search.PrivateSession.Setting.v124" = "W priwatnych pósejźenjach pokazaś";
 
 /* Title for the `Private Browsing` settings section in the Search page in the Settings menu. */
 "Settings.Search.PrivateSession.Title.v122" = "Priwatny modus";
@@ -121,15 +121,27 @@
 /* In the search page of the Settings menu, the title for the link to the SUMO Page about Firefox Suggest. */
 "Settings.Search.Suggest.LearnAboutSuggestions.v124" = "Zgóńśo wěcej wó Firefox Suggest";
 
+/* In the Search page of the Settings menu, the title for the setting to enable search browsing history. */
+"Settings.Search.Suggest.SearchBrowsingHistory.Title.v124" = "Pśeglědowańsku historiju pśepytaś";
+
+/* In the Search page of the Settings menu, the title for the setting to enable search bookmarks. */
+"Settings.Search.Suggest.SearchSearchBookmarks.Title.v124" = "Cytańske znamjenja pśepytaś";
+
+/* In the Search page of the Settings menu, the title for the setting to enable synced tabs. */
+"Settings.Search.Suggest.SearchSyncedTabs.Title.v124" = "Synchronizěrowane rejtariki pśepytaś";
+
 /* In the Search page of the Settings menu, the description for the setting to enable Suggestions from Firefox. */
 "Settings.Search.Suggest.ShowNonSponsoredSuggestions.Description.v124" = "Wobstarajśo se naraźenja z weba nastupajucy wašo pytanje";
+
+/* In the Search page of the Settings menu, the description for the setting to enable Suggestions from Firefox. Placeholder is for the app name - Firefox. */
+"Settings.Search.Suggest.ShowNonSponsoredSuggestions.Description.v124.v2" = "Wobstarajśo se naraźenja z %@ nastupajucy wašo pytanje";
 
 /* In the Search page of the Settings menu, the title for setting to enable Suggestions from Firefox. Placeholder is for the app name - Firefox. */
 "Settings.Search.Suggest.ShowNonSponsoredSuggestions.Title.v124" = "Naraźenja wót %@";
 
+/* In the Search page of the Settings menu, the title for setting to enable Suggestions from the web in Firefox. */
+"Settings.Search.Suggest.ShowNonSponsoredSuggestions.Title.v124.v2" = "Naraźenja z weba";
+
 /* In the Search page of the Settings menu, the description for the setting to enable Suggestions from sponsors. Placeholder is for the app name - Firefox. */
 "Settings.Search.Suggest.ShowSponsoredSuggestions.Description.v124" = "Pódprějśo %@ z pśigóźbnymi sponserowanymi naraźenjami";
-
-/* In the Search page of the Settings menu, the title for the setting to enable Suggestions from sponsors. */
-"Settings.Search.Suggest.ShowSponsoredSuggestions.Title.v124" = "Naraźenja wót sponsorow";
 
